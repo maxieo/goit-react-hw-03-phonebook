@@ -39,18 +39,17 @@ deleteContact = contactId => {
   }));
 };
   
-  componentDidMount() { 
-    const contact = localStorage.getItem('contacts')
-    const parsedContacts = JSON.parse(contact)
-      
-    this.setState({contacts: parsedContacts})
+componentDidMount = () => {
+  if (localStorage.getItem('contacts')) {
+    this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
   }
-  
-  componentDidUpdate(prevProps, prevState) { 
-    if (this.state.contacts !== prevState.contacts) { 
-      localStorage.setItem('contacts', JSON.stringify (this.state.contacts))
-    }
+};
+
+componentDidUpdate = (prevProps, prevState) => {
+  if (this.state.contacts !== prevState.contacts) {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
+};
   
   render() { 
     const { filter } = this.state
