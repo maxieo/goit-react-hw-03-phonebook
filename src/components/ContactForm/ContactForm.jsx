@@ -25,6 +25,8 @@ class ContactForm extends Component {
   reset = () => { 
     this.setState({name: '', number:''})
   }
+
+  
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
